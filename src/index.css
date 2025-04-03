@@ -1,0 +1,19 @@
+@import url(./vendor/normalize.css);
+@import url(./vendor/font.css);
+@import url(./_variables.css);
+
+body {
+  color: var(--color-base);
+  font-family: 'Inter', 'Arial', sans-serif;
+  font-weight: var(--font-w-medium);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-variant-numeric: lining-nums;
+  text-wrap: pretty;
+}

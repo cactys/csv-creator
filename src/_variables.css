@@ -1,0 +1,34 @@
+:root {
+  --bg-main: linear-gradient(45deg,
+      #125365 40.5%,
+      #FF713F 40.5% 54.5%,
+      #FF9C46 54.5% 84.5%,
+      #ffca4a 84.5% 100%);
+  --main-padding: 32px;
+  --font-w-regular: 400;
+  --font-w-medium: 500;
+  --font-w-bold: 700;
+  --font-size-xs: 10px;
+  --font-size-sm: 14px;
+  --font-size-m: 20px;
+  --font-size-base: 28px;
+  --font-size-lg: 36px;
+  --line-height-xs: 12px;
+  --line-height-sm: 16px;
+  --line-height-m: 24px;
+  --line-height-base: 32px;
+  --line-height-lg: 44px;
+
+  --radii: 10px;
+
+  --color-base: #125365;
+  --color-alt: #81A1A9;
+  --color-white: #f1f1ef;
+  --color-green: #2A8F55;
+  --color-red: #DF4C25;
+  --btn-color-active: #ff9c46;
+  --btn-color-disable: #edd0b6;
+  --text-btn-disable: #81a1a9;
+
+  --transition: all .3s ease-in-out;
+}
