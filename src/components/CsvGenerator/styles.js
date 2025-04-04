@@ -20,18 +20,29 @@ export const styles = {
     marginTop: '5px',
   },
   button: {
-    backgroundColor: '#4CAF50',
-    color: 'white',
-    padding: '10px 20px',
-    border: 'none',
-    borderRadius: '4px',
-    cursor: 'pointer',
-    fontSize: '16px',
-    transition: 'opacity 0.3s ease',
-    ':disabled': {
+    base: {
+      backgroundColor: '#4CAF50',
+      color: 'white',
+      padding: '12px 24px',
+      border: 'none',
+      borderRadius: '6px',
+      cursor: 'pointer',
+      fontSize: '16px',
+      fontWeight: '500',
+      transition: 'all 0.2s ease-in-out',
+      ':hover': {
+        transform: 'translateY(-1px)',
+        boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+      },
+    },
+    disabled: {
       opacity: 0.8,
       cursor: 'default',
-      backgroundColor: '#cccccc',
+      backgroundColor: '#a5d6a7',
+      ':hover': {
+        transform: 'none',
+        boxShadow: 'none',
+      },
     },
   },
   error: {

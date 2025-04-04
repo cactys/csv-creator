@@ -271,11 +271,12 @@ const CsvGenerator = () => {
 
       <button
         style={{
-          ...styles.button,
-          ...styles.button[':disabled'],
+          ...styles.button.base,
+          ...((!state.startNum || !state.numLines) && styles.button.disabled),
         }}
         onClick={handleGenerate}
         disabled={!state.startNum || !state.numLines}
+        aria-disabled={!state.startNum || !state.numLines}
       >
         Сгенерировать CSV
       </button>
