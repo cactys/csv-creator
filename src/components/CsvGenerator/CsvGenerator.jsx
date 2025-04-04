@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { styles } from './styles';
+import { getFormattedDate } from '../../utils/getFormattedDate';
 
 const TOTAL_LENGTH = 12;
 const MAX_BASE_LENGTH = TOTAL_LENGTH - 1;
@@ -18,33 +19,6 @@ const CsvGenerator = () => {
     history: [],
     stats: [],
   });
-
-  // Загрузка данных при монтировании
-  useEffect(() => {
-    const loadData = () => {
-      try {
-        const history = JSON.parse(localStorage.getItem(HISTORY_KEY)) || [];
-        const stats = JSON.parse(localStorage.getItem(STATS_KEY)) || [];
-        setState((prev) => ({ ...prev, history, stats }));
-      } catch (e) {
-        console.error('Ошибка загрузки данных:', e);
-      }
-    };
-    loadData();
-  }, []);
-
-  // Обновление информации о нумерации
-  useEffect(() => {
-    const currentNumLength = TOTAL_LENGTH - state.baseKey.length;
-    const calculatedNumLength = Math.max(1, currentNumLength);
-    const calculatedMaxNum = 10 ** calculatedNumLength - 1;
-
-    setState((prev) => ({
-      ...prev,
-      numInfo: { length: calculatedNumLength, max: calculatedMaxNum },
-      startNum: prev.startNum > calculatedMaxNum ? '' : prev.startNum,
-    }));
-  }, [state.baseKey, state.startNum]);
 
   const saveHistoryAndStats = (newKey, fileName, count, start, end) => {
     const timestamp = new Date().toISOString();
@@ -121,10 +95,12 @@ const CsvGenerator = () => {
           .padStart(state.numInfo.length, '0')}`.slice(0, TOTAL_LENGTH);
       });
 
+      // Добавляем дату к имени файла
+      const dateSuffix = getFormattedDate();
       const cleanFileName = `${state.fileName.replace(
         /[^A-Za-z0-9_-]/g,
         ''
-      )}.csv`;
+      )}${dateSuffix}.csv`;
       const blob = new Blob([lines.join('\n')], {
         type: 'text/csv;charset=utf-8',
       });
@@ -187,6 +163,33 @@ const CsvGenerator = () => {
       return newState;
     });
   };
+
+  // Загрузка данных при монтировании
+  useEffect(() => {
+    const loadData = () => {
+      try {
+        const history = JSON.parse(localStorage.getItem(HISTORY_KEY)) || [];
+        const stats = JSON.parse(localStorage.getItem(STATS_KEY)) || [];
+        setState((prev) => ({ ...prev, history, stats }));
+      } catch (e) {
+        console.error('Ошибка загрузки данных:', e);
+      }
+    };
+    loadData();
+  }, []);
+
+  // Обновление информации о нумерации
+  useEffect(() => {
+    const currentNumLength = TOTAL_LENGTH - state.baseKey.length;
+    const calculatedNumLength = Math.max(1, currentNumLength);
+    const calculatedMaxNum = 10 ** calculatedNumLength - 1;
+
+    setState((prev) => ({
+      ...prev,
+      numInfo: { length: calculatedNumLength, max: calculatedMaxNum },
+      startNum: prev.startNum > calculatedMaxNum ? '' : prev.startNum,
+    }));
+  }, [state.baseKey, state.startNum]);
 
   return (
     <div style={styles.container}>
