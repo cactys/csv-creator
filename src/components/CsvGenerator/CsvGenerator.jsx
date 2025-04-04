@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import { styles } from './styles';
-import { getFormattedDate } from '../../utils/getFormattedDate';
-
-const TOTAL_LENGTH = 12;
-const MAX_BASE_LENGTH = TOTAL_LENGTH - 1;
-const HISTORY_KEY = 'csvGeneratorHistory';
-const STATS_KEY = 'csvGeneratorStats';
+import { getFormattedDate, saveHistoryAndStats } from '../../utils/utils';
+import {
+  HISTORY_KEY,
+  MAX_BASE_LENGTH,
+  STATS_KEY,
+  TOTAL_LENGTH,
+} from '../../utils/constants';
 
 const CsvGenerator = () => {
   const [state, setState] = useState({
@@ -19,31 +20,6 @@ const CsvGenerator = () => {
     history: [],
     stats: [],
   });
-
-  const saveHistoryAndStats = (newKey, fileName, count, start, end) => {
-    const timestamp = new Date().toISOString();
-    const newHistory = [...new Set([newKey, ...state.history])].slice(0, 10);
-    const newStats = [
-      ...state.stats,
-      {
-        key: newKey,
-        fileName,
-        count,
-        startNum: start,
-        endNum: end,
-        timestamp,
-      },
-    ].slice(-50);
-
-    localStorage.setItem(HISTORY_KEY, JSON.stringify(newHistory));
-    localStorage.setItem(STATS_KEY, JSON.stringify(newStats));
-
-    setState((prev) => ({
-      ...prev,
-      history: newHistory,
-      stats: newStats,
-    }));
-  };
 
   const validateInputs = () => {
     const errors = [];
@@ -122,7 +98,9 @@ const CsvGenerator = () => {
         cleanFileName,
         state.numLines,
         start,
-        end
+        end,
+        state,
+        setState
       );
 
       setState((prev) => ({
