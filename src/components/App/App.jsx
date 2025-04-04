@@ -1,9 +1,9 @@
-import SvgGenerator from '../SvgGenerator/SvgGenerator';
+import CsvGenerator from "../CsvGenerator/CsvGenerator";
 
 function App() {
   return (
     <>
-      <SvgGenerator />
+      <CsvGenerator />
     </>
   );
 }
