@@ -1,5 +1,7 @@
 [DEMO](https://csv-creator.vercel.app/)
 
+![Скриншот приложения](Screenshot.png)
+
 # CSV Creator
 
 Приложение для генерации CSV файлов с последовательными идентификаторами.
