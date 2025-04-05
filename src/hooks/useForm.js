@@ -166,11 +166,20 @@ const useForm = (initialValues = {}) => {
     // Генерируем CSV с этими значениями
     const { newHistory, stats } = generateCsv(tempValues);
 
-    // Обновляем состояние без добавления в историю
+    // Обновляем существующую запись в истории генераций
+    const updatedGenerationHistory = values.generationHistory.map(historyItem =>
+      historyItem.date === item.date ? stats : historyItem
+    );
+
+    // Сохраняем обновленную историю в localStorage
+    localStorage.setItem('generationHistory', JSON.stringify(updatedGenerationHistory));
+
+    // Обновляем состояние с обновленной записью в истории
     setValues(prev => ({
       ...prev,
       history: newHistory,
       stats,
+      generationHistory: updatedGenerationHistory,
       success: 'Файл успешно создан!'
     }));
   };
