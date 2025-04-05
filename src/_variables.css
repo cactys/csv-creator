@@ -38,6 +38,10 @@
   --font-size-3xl: 24px;
   --font-size-4xl: 28px;
 
+  --line-height-base: 1.5;
+  --line-height-tight: 1.25;
+  --line-height-loose: 1.75;
+
   /* Отступы */
   --spacing-xs: 4px;
   --spacing-sm: 8px;
@@ -60,4 +64,10 @@
   /* Анимации */
   --transition-fast: 0.2s;
   --transition-base: 0.3s ease-in-out;
+
+  /* Размеры */
+  --width-half: 50%;
+  --height-full: 100vh;
+  --transform-hover: translateY(-2px);
+  --transform-center: translate(-50%, -50%);
 }

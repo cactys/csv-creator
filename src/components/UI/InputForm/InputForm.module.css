@@ -33,9 +33,9 @@
 }
 
 .numberButton {
-  width: 32px;
-  height: 32px;
-  min-width: 32px;
+  width: var(--spacing-3xl);
+  height: var(--spacing-3xl);
+  min-width: var(--spacing-3xl);
   border-radius: var(--radius-full);
   border: 2px solid var(--color-primary);
   background-color: var(--color-primary);

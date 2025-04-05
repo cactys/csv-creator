@@ -1,7 +1,7 @@
 .container {
   display: flex;
-  min-height: 100vh;
-  height: 100vh;
+  min-height: var(--height-full);
+  height: var(--height-full);
   padding: var(--spacing-xl);
   gap: var(--spacing-xl);
   box-sizing: border-box;
@@ -10,7 +10,7 @@
 
 .mainContent {
   flex: 1;
-  max-width: 50%;
+  max-width: var(--width-half);
   overflow-y: auto;
   padding-right: var(--spacing-xl);
 }
