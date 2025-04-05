@@ -1,0 +1,69 @@
+.container {
+  display: flex;
+  min-height: 100vh;
+  height: 100vh;
+  padding: var(--spacing-xl);
+  gap: var(--spacing-xl);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.mainContent {
+  flex: 1;
+  max-width: 50%;
+  overflow-y: auto;
+  padding-right: var(--spacing-xl);
+}
+
+.statsSection {
+  margin-top: var(--spacing-xl);
+}
+
+.statItem {
+  background-color: var(--color-background);
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.statItem h2 {
+  margin-bottom: var(--spacing-lg);
+  color: var(--color-text-primary);
+}
+
+.statItem dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--spacing-sm) var(--spacing-lg);
+}
+
+.statItem dt {
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-secondary);
+}
+
+.statItem dd {
+  margin: 0;
+  color: var(--color-text-primary);
+}
+
+.button {
+  margin-top: var(--spacing-xl);
+  padding: var(--spacing-sm) var(--spacing-xl);
+  background-color: var(--color-primary);
+  color: var(--color-background-white);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: var(--font-size-lg);
+  transition: background-color var(--transition-fast);
+}
+
+.button:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.button:disabled {
+  background-color: var(--color-disabled);
+  cursor: not-allowed;
+}

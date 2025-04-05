@@ -1,14 +1,103 @@
 [DEMO](https://csv-creator.vercel.app/)
 
-# React + Vite
+# CSV Creator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Приложение для генерации CSV файлов с последовательными идентификаторами.
 
-Currently, two official plugins are available:
+## Описание
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+CSV Creator - это веб-приложение, которое позволяет генерировать CSV файлы с последовательными идентификаторами на основе базового ключа. Приложение предоставляет удобный интерфейс для настройки параметров генерации и сохраняет историю созданных файлов.
 
-## Expanding the ESLint configuration
+### Основные возможности
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Генерация CSV файлов с последовательными идентификаторами
+- Настройка базового ключа, начального номера и количества строк
+- Валидация ввода с проверкой допустимых символов
+- История генераций с возможностью повторной загрузки
+- Адаптивный дизайн
+- Сохранение истории в localStorage
+
+## Технологии
+
+- React
+- CSS Modules
+- Vite
+- ESLint
+- PropTypes
+
+## Требования
+
+- Node.js 14.0 или выше
+- npm 6.0 или выше
+
+## Установка
+
+1. Клонируйте репозиторий:
+```bash
+git clone https://github.com/cactys/csv-creator.git
+cd csv-creator
+```
+
+2. Установите зависимости:
+```bash
+npm install
+```
+
+## Запуск
+
+### Режим разработки
+
+```bash
+npm run dev
+```
+
+Приложение будет доступно по адресу: http://localhost:5173
+
+### Сборка для продакшена
+
+```bash
+npm run build
+```
+
+Собранные файлы будут находиться в директории `dist`
+
+### Предпросмотр собранного приложения
+
+```bash
+npm run preview
+```
+
+## Использование
+
+1. Введите базовый ключ (допустимые символы: буквы a-z, A-Z, цифры 0-9, символ подчеркивания _)
+2. Укажите начальный номер
+3. Укажите количество строк
+4. Введите имя файла
+5. Нажмите кнопку "Создать CSV"
+
+## Структура проекта
+
+```
+csv-creator/
+├── src/
+│   ├── components/
+│   │   ├── UI/
+│   │   │   ├── ErrorMessage/
+│   │   │   ├── InputForm/
+│   │   │   └── SuccessMessage/
+│   │   ├── CsvGenerator/
+│   │   └── GenerationHistory/
+│   ├── hooks/
+│   ├── utils/
+│   ├── _variables.css
+│   └── main.jsx
+├── public/
+├── index.html
+├── package.json
+├── vite.config.js
+└── README.md
+```
+
+## Лицензия
+
+MIT

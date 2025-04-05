@@ -35,3 +35,33 @@ export const saveHistoryAndStats = (newKey, fileName, count, start, end, state, 
     stats: newStats,
   }));
 };
+
+export const generateCsv = (values) => {
+  const lines = [];
+  for (let i = 0; i < values.numLines; i++) {
+    const num = values.startNum + i;
+    const paddedNum = num.toString().padStart(values.numInfo.length, '0');
+    lines.push(`${values.baseKey}${paddedNum}`);
+  }
+
+  const csvContent = lines.join('\n');
+  const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = `${values.fileName}.csv`;
+  link.click();
+
+  const newHistory = [values.baseKey, ...values.history.filter(key => key !== values.baseKey)].slice(0, 10);
+  localStorage.setItem('history', JSON.stringify(newHistory));
+
+  const stats = {
+    date: new Date().toLocaleString(),
+    baseKey: values.baseKey,
+    startNum: values.startNum,
+    numLines: values.numLines,
+    fileName: values.fileName
+  };
+  localStorage.setItem('stats', JSON.stringify(stats));
+
+  return { newHistory, stats };
+};

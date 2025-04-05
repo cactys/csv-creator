@@ -1,34 +1,63 @@
 :root {
-  --bg-main: linear-gradient(45deg,
-      #125365 40.5%,
-      #FF713F 40.5% 54.5%,
-      #FF9C46 54.5% 84.5%,
-      #ffca4a 84.5% 100%);
-  --main-padding: 32px;
-  --font-w-regular: 400;
-  --font-w-medium: 500;
-  --font-w-bold: 700;
+  /* Цвета */
+  --color-primary: #007bff;
+  --color-primary-hover: #0056b3;
+  --color-primary-light: rgba(0, 123, 255, 0.25);
+  --color-primary-transparent: rgba(0, 123, 255, 0.9);
+
+  --color-text-primary: #333;
+  --color-text-secondary: #666;
+  --color-text-light: #999;
+
+  --color-background: #f5f5f5;
+  --color-background-light: #f9f9f9;
+  --color-background-white: #ffffff;
+
+  --color-border: #e0e0e0;
+  --color-border-light: #ccc;
+
+  --color-success: #008000;
+  --color-success-bg: #e6ffe6;
+  --color-error: #dc3545;
+  --color-error-bg: #ffe6e6;
+
+  --color-disabled: #ccc;
+
+  /* Типографика */
+  --font-family: 'Inter', 'Arial', sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 600;
+
   --font-size-xs: 10px;
-  --font-size-sm: 14px;
-  --font-size-m: 20px;
-  --font-size-base: 28px;
-  --font-size-lg: 36px;
-  --line-height-xs: 12px;
-  --line-height-sm: 16px;
-  --line-height-m: 24px;
-  --line-height-base: 32px;
-  --line-height-lg: 44px;
+  --font-size-sm: 12px;
+  --font-size-base: 14px;
+  --font-size-lg: 16px;
+  --font-size-xl: 18px;
+  --font-size-2xl: 20px;
+  --font-size-3xl: 24px;
+  --font-size-4xl: 28px;
 
-  --radii: 10px;
+  /* Отступы */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 20px;
+  --spacing-2xl: 24px;
+  --spacing-3xl: 32px;
 
-  --color-base: #125365;
-  --color-alt: #81A1A9;
-  --color-white: #f1f1ef;
-  --color-green: #2A8F55;
-  --color-red: #DF4C25;
-  --btn-color-active: #ff9c46;
-  --btn-color-disable: #edd0b6;
-  --text-btn-disable: #81a1a9;
+  /* Скругления */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-full: 50%;
 
-  --transition: all .3s ease-in-out;
+  /* Тени */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
+
+  /* Анимации */
+  --transition-fast: 0.2s;
+  --transition-base: 0.3s ease-in-out;
 }
