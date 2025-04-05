@@ -6,6 +6,8 @@
   gap: var(--spacing-xl);
   box-sizing: border-box;
   overflow: hidden;
+  max-width: var(--max-width-app);
+  margin: 0 auto;
 }
 
 .mainContent {

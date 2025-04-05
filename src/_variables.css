@@ -70,4 +70,5 @@
   --height-full: 100vh;
   --transform-hover: translateY(-2px);
   --transform-center: translate(-50%, -50%);
+  --max-width-app: 1280px;
 }
