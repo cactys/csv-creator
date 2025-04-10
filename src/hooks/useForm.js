@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { MAX_BASE_LENGTH } from '@utils/constants';
+import { MAX_BASE_LENGTH, TOTAL_LENGTH } from '@utils/constants';
 import { generateCsv } from '@utils/utils';
 
 const useForm = (initialValues = {}) => {
@@ -11,7 +11,7 @@ const useForm = (initialValues = {}) => {
     error: '',
     success: '',
     history: [],
-    numInfo: { length: MAX_BASE_LENGTH, max: Math.pow(10, MAX_BASE_LENGTH) - 1 },
+    numInfo: { length: TOTAL_LENGTH, max: Math.pow(10, TOTAL_LENGTH) - 1 },
     stats: null,
     generationHistory: [],
     ...initialValues
@@ -69,7 +69,7 @@ const useForm = (initialValues = {}) => {
       }
 
       if (field === 'baseKey') {
-        const length = value ? MAX_BASE_LENGTH - value.length : MAX_BASE_LENGTH;
+        const length = value ? TOTAL_LENGTH - value.length : MAX_BASE_LENGTH;
         const max = Math.pow(10, length) - 1;
         newState.numInfo = { length, max };
 

@@ -5,7 +5,10 @@ import GenerationHistory from '../GenerationHistory/GenerationHistory';
 import styles from './CsvGenerator.module.css';
 
 const CsvGenerator = () => {
-  const { values, handleInputChange, generateCsv, regenerateCsv, formFields } = useForm();
+  const { values, handleInputChange, generateCsv, regenerateCsv, formFields } =
+    useForm();
+
+  console.log(values);
 
   return (
     <main className={styles.container}>
@@ -21,7 +24,10 @@ const CsvGenerator = () => {
         <ErrorMessage error={values.error} />
         <SuccessMessage success={values.success} />
 
-        <section className={styles.statsSection} aria-label="Статистика генерации">
+        <section
+          className={styles.statsSection}
+          aria-label="Статистика генерации"
+        >
           <article className={styles.statItem}>
             <h2>Последняя генерация</h2>
             <dl>
